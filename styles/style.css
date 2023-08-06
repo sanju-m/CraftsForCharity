@@ -1598,6 +1598,11 @@ background-position: center;
 .question.center{
   margin-bottom:100px;
 }
+
+.crafts-donation-link:hover {
+  text-decoration: none;
+}
+
 /* --------------------------------------------------------------------- */
 /* CONTACT US */
 .contact-page .logo {
