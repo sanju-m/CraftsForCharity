@@ -119,11 +119,12 @@ $dark-grey: #767676;
         display: block;
         text-align: right;
         float: right;
-        height: 0;
+        height: 100vh;
         background-color: white;
         width: 100%;
+        margin-right: -999px;
         overflow: scroll;
-        transition: height 0.3s;
+        transition: all 0.5s;
         padding-bottom: 10px;
         padding-right: 10px;
 
@@ -169,12 +170,12 @@ $dark-grey: #767676;
     }
 
     input[type=checkbox]:checked ~ label {
+        transform: rotate(90deg) !important;
         color: black !important;
     }
-    
 
     #menu-icon:checked ~ nav {
-        height: 330px;
+        margin-right: 0;
         box-shadow: 0px 10px 16px -16px rgba(0,0,0,0.2);
     }
 
@@ -482,7 +483,7 @@ $dark-grey: #767676;
 @media screen and (max-width: 380px) {
 }
 
-@media screen and (max-width: 1300px){
+@media screen and (max-width: 1300px) {
     .donate-mobile {
         display: block;
     }
@@ -490,9 +491,20 @@ $dark-grey: #767676;
     .donate-desktop {
         display: none;
     }
+
+    nav {
+        position: absolute;
+        top: 70px;
+        padding: 0 5vw;
+        width: auto;
+    }
+
+    nav ul label, nav ul li a.head {
+        font-size: 1.4em;
+    }
 }
 
-@media screen and (min-width: 1301px){
+@media screen and (min-width: 1301px) {
     .donate-mobile {
         display: none;
     }
