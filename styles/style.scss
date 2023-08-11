@@ -1319,6 +1319,15 @@ footer {
     }
 }
 
+.crafts-donation-link {
+    text-decoration: underline;
+    color: rgb(69, 79, 153);
+  }
+  
+.crafts-donation-link:hover {
+text-decoration: underline;
+color: rgb(58, 67, 132);
+}
 
 /* --------------------------------------------------------------------- */
 /* CONTACT US */
@@ -1354,10 +1363,6 @@ footer {
             }
         }
     }
-}
-
-.crafts-donation-link:hover {
-    text-decoration: none;
 }
 
 /* --------------------------------------------------------------------- */
