@@ -4,15 +4,69 @@
 <html>
 
 <head>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
 </head>
 
 <footer>
+  
+  <script>
+
+function sendEmail() {
+    // Get values from input controls
+    var last_name = document.getElementById('last_name').value;
+    var first_name = document.getElementById('first_name').value;
+    var email_id = document.getElementById('email_id').value;
+    var emailMessage = document.getElementById('emailMessage').value;
+    // Change the button text to indicate submission
+    var btnSubmit = document.getElementById('btnSubmit');
+    var statusLabel = document.getElementById('statusLabel')
+
+
+    var emailJsPublicKey = "inJNWGAhv5fR6twO0";
+
+    // Check if both inputs are not empty
+    if (last_name.trim() !== '' && first_name.trim() !== '' && email_id.trim() !== '' && emailMessage.trim() !== '') {
+        emailjs.init(emailJsPublicKey);
+        btnSubmit.innerText = "Sending email..."
+        var res = emailjs.send("service_mdeykem","template_sc17poj",{
+            from_name: last_name + "," + first_name,
+            email_id: email_id,
+            message: emailMessage,
+            })
+            .then(function(response) {
+              console.log('SUCCESS!', response.status, response.text);
+              statusLabel.style.color = 'green';
+              statusLabel.textContent = 'Email sent successfully.';
+              // Clear the status after a brief period (e.g., 2000 milliseconds = 2 seconds)
+              setTimeout(function() {
+                    document.getElementById('statusLabel').textContent = '';
+                }, 2000);
+            }, function(error) {
+              console.log('FAILED...', error);
+              statusLabel.style.color = 'red';
+              statusLabel.textContent = 'Email failed. Please try again later..';
+              // Clear the status after a brief period (e.g., 2000 milliseconds = 2 seconds)
+              setTimeout(function() {
+                    document.getElementById('statusLabel').textContent = '';
+                }, 2000);
+            });
+
+            // Display alert with user inputs
+            btnSubmit.innerText = "Submit"
+      }
+}
+
+    // Prevent the default form submission
+    document.getElementById('myForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+        });
+</script>
   <div class="container">
     <div class="row">
       <div class="col-md-3">
         <div class="form-row">
           
-          <form>
+          <form id="myForm">
               <div class="form-group mb-3">
                 <h3 class="mb-3">CONTACT US</h3>
               </div>
@@ -25,15 +79,21 @@
               </div>
               
               <div class="form-group mb-3">
-                  <input type="email" name="email" id="email" class="form-control" placeholder="Email" required>
+                  <input type="email" name="email" id="email_id" class="form-control" placeholder="Email" required>
               </div>
       
               <div class="form-group mb-3">
-                <textarea id="emailMessage" name="emailMessage" rows="4" placeholder="Type your email message here..." class="form-control" ></textarea>
+                <textarea id="emailMessage" name="emailMessage" placeholder="Type your email message here..." required class="form-control" ></textarea>
               </div>
       
-              <button type="submit" class="btn btn-primary" style="width: 100%; border-radius: 10px;">Submit</button>
-          </form>
+              <div class="form-group mb-3">
+              <button type="submit" id="btnSubmit" class="btn btn-primary" style="width: 100%; border-radius: 10px;" onclick="sendEmail()">Submit</button>
+              </div>
+              <div class="form-group mb-3">
+              <!-- Label to display status -->
+              <label id="statusLabel" style="width: 100%;"></label>
+              </div>
+            </form>
       </div>
       
       </div>
