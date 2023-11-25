@@ -792,7 +792,7 @@ button.collapsible h2:hover, button.collapsible h2 .active {
   margin-left: 0.5rem;
 }
 
-input[type=text], textarea {
+input[type=text], input[type=email], textarea {
   background-color: white;
   width: 100%;
   outline: none;

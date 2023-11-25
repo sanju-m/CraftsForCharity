@@ -774,7 +774,7 @@ button.collapsible h2 {
     }
 }
 
-input[type=text], textarea {
+input[type=text], input[type=email], textarea {
     background-color: $light-grey;
     width: 100%;
     outline: none;
