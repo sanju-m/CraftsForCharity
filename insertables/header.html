@@ -1,79 +1,83 @@
 <!DOCTYPE html>
 <html lang="en">
 <header>
-    <a href="/" class="logo">
-        <div class="logo-pic"><img src="/images/new-logo.png"></div>
-        <h1 class="logo-text">Crafts for <span class="logo-text-wrap">Charity</span></h1>
-    </a>
+  <a href="/" class="logo">
+    <div class="logo-pic"><img src="/images/new-logo.png"></div>
+    <h1 class="logo-text">Crafts for <span class="logo-text-wrap">Charity</span></h1>
+  </a>
 
-    <input type="checkbox" id="menu-icon">
-    <label for="menu-icon"><i class="fas fa-bars"></i></label>
-    <nav>
-        <ul>
-            <li><a href="/" id="home-nav" title="Home" class="head">HOME</a></li>
-            
-            <div class="dropdown">
-                <input type="checkbox" id="aboutus-dropdown">
-                <li><label for="aboutus-dropdown" class="head drop" id="about-nav">ABOUT US</label></li>
-                <!-- <li><a href="/about-us/" id="about-nav" class="head drop" title="About Us">ABOUT US</a></li> -->
-                <ul class="dropdown-content">
-                    <li><a href="/about-us/" class="sub">overview</a></li>
-                    <li><a href="/about-us/meet-our-team/" class="sub">meet our team</a></li>
-                    <li><a href="/about-us/who-we-support/" class="sub">who we support</a></li>
-                </ul>
-            </div>
-    
-            <div class="dropdown">
-                <input type="checkbox" id="volunteer-dropdown">
-                <li><label for="volunteer-dropdown" class="head drop" id="volunteer-nav">VOLUNTEER</label></li>
-                <!-- <li><a href="/volunteer/" id="volunteer-nav" class="head drop" title="Volunteer">VOLUNTEER</a></li> -->
-                <ul class="dropdown-content">
-                    <div class="side">
-                        <li><a href="/volunteer/" class="sub nav-item" id="member-overview">member positions</a></li>
-                        <ul class="side-content">
-                            <li><a href="/volunteer/team-descriptions/" class="sub nav-item">team descriptions</a></li>
-<!--                        <li><a href="/volunteer/logistics/" class="sub nav-item">logistics</a></li>
+  <input type="checkbox" id="menu-icon">
+  <label for="menu-icon"><i class="fas fa-bars"></i></label>
+  <nav>
+    <ul>
+      <li><a href="/" id="home-nav" title="Home" class="head">HOME</a></li>
+
+      <div class="dropdown">
+        <input type="checkbox" id="aboutus-dropdown">
+        <li><label for="aboutus-dropdown" class="head drop" id="about-nav">ABOUT US</label></li>
+        <!-- <li><a href="/about-us/" id="about-nav" class="head drop" title="About Us">ABOUT US</a></li> -->
+        <ul class="dropdown-content">
+          <li><a href="/about-us/" class="sub">overview</a></li>
+          <li><a href="/about-us/meet-our-team/" class="sub">meet our team</a></li>
+          <li><a href="/about-us/who-we-support/" class="sub">who we support</a></li>
+        </ul>
+      </div>
+
+      <div class="dropdown">
+        <input type="checkbox" id="volunteer-dropdown">
+        <li><label for="volunteer-dropdown" class="head drop" id="volunteer-nav">VOLUNTEER</label></li>
+        <!-- <li><a href="/volunteer/" id="volunteer-nav" class="head drop" title="Volunteer">VOLUNTEER</a></li> -->
+        <ul class="dropdown-content">
+          <div class="side">
+            <li><a href="/volunteer/" class="sub nav-item" id="member-overview">member positions</a></li>
+            <ul class="side-content">
+              <li><a href="/volunteer/team-descriptions/" class="sub nav-item">team descriptions</a></li>
+              <!--                        <li><a href="/volunteer/logistics/" class="sub nav-item">logistics</a></li>
                             <li><a href="/volunteer/outreach/" class="sub nav-item">outreach</a></li>
                             <li><a href="/volunteer/teaching/" class="sub nav-item">teaching</a></li> -->
-                        </ul> 
-　                       <div class="mobile-container">
-                             <li><a href="/volunteer/team-descriptions/" class="sub mobile nav-item">team descriptions &nbsp;<i class="fas fa-chevron-right"></i></a></li> 
-<!--                          <li><a href="/volunteer/logistics/" class="sub mobile nav-item">logistics &nbsp;<i class="fas fa-chevron-right"></i></a></li>
+            </ul>
+            　 <div class="mobile-container">
+              <li><a href="/volunteer/team-descriptions/" class="sub mobile nav-item">team descriptions &nbsp;<i
+                    class="fas fa-chevron-right"></i></a></li>
+              <!--                          <li><a href="/volunteer/logistics/" class="sub mobile nav-item">logistics &nbsp;<i class="fas fa-chevron-right"></i></a></li>
                             <li><a href="/volunteer/outreach/" class="sub mobile nav-item">outreach &nbsp;<i class="fas fa-chevron-right"></i></a></li>
                             <li><a href="/volunteer/positions/teaching/" class="sub mobile nav-item">teaching &nbsp;<i class="fas fa-chevron-right"></i></a></li>  -->
 
-                        </div> 
-                    </div>
-    
-<!--                     <li><a href="/volunteer/service-hours/" class="sub nav-item">service hours for members</a></li> -->
-                    <li><a href="/volunteer/application/" class="sub nav-item">volunteer application</a></li>
-                </ul>
             </div>
-            
-            <li><a href="/faq/" class="head" id="faq-nav">FAQ</a></li>
-            <li><a href="/contact/" class="head" id="contact-us-nav">CONTACT US</a></li>
-    
-            <div class="dropdown donate-dropdown donate-desktop">
-                <button class="btn">
-                    <a href="/donate/" class="head donate-lbl" title="Donate">DONATE<span class=" drop dropdown-triangle" ontouchstart=""> | </span></a>
-                </button>
-                <ul class="dropdown-content donate-dropdown-content">
-                    <li><a href="/donate/crafts-materials/" class="sub nav-item" id="donate-materials">donate crafts or materials</a></li>
-                </ul>
-            </div>
+          </div>
 
-            <div class="dropdown donate-mobile">
-                <input type="checkbox" id="donatebtn-dropdown">
-                <li><label for="donatebtn-dropdown" class="head drop btn" id="donate-label">DONATE<span> | </span></label></li>
-                <ul class="dropdown-content">
-                    <li><a href="/donate/" class="sub nav-item" id="donate-materials">donate funds</a></li>
-                    <li><a href="/donate/crafts-materials/" class="sub nav-item" id="donate-materials">donate crafts or materials</a></li>
-                </ul>
-            </div>
+          <!--                     <li><a href="/volunteer/service-hours/" class="sub nav-item">service hours for members</a></li> -->
+          <li><a href="/volunteer/application/" class="sub nav-item">volunteer application</a></li>
         </ul>
-    </nav>
+      </div>
 
-    <!-- <script>
+      <li><a href="/faq/" class="head" id="faq-nav">FAQ</a></li>
+      <li><a href="/contact/" class="head" id="contact-us-nav">CONTACT US</a></li>
+
+      <div class="dropdown donate-dropdown donate-desktop">
+        <button class="btn">
+          <a href="/donate/" class="head donate-lbl" title="Donate">DONATE<span class=" drop dropdown-triangle"
+              ontouchstart=""> | </span></a>
+        </button>
+        <ul class="dropdown-content donate-dropdown-content">
+          <li><a href="/donate/crafts-materials/" class="sub nav-item" id="donate-materials">donate crafts or
+              materials</a></li>
+        </ul>
+      </div>
+
+      <div class="dropdown donate-mobile">
+        <input type="checkbox" id="donatebtn-dropdown">
+        <li><label for="donatebtn-dropdown" class="head drop btn" id="donate-label">DONATE<span> | </span></label></li>
+        <ul class="dropdown-content">
+          <li><a href="/donate/" class="sub nav-item" id="donate-materials">donate funds</a></li>
+          <li><a href="/donate/crafts-materials/" class="sub nav-item" id="donate-materials">donate crafts or
+              materials</a></li>
+        </ul>
+      </div>
+    </ul>
+  </nav>
+
+  <!-- <script>
         var menu_check = document.getElementById("menu-icon");
 
         // click anywhere will close menu icon
@@ -85,13 +89,6 @@
             }
         ); 
     </script> -->
-    <script>
-        //header animation: transparent --> white
-        window.addEventListener("scroll", function() {
-            var header = document.querySelector("header");
-            header.classList.toggle("sticky", window.scrollY > 50);
-        })
-    </script>
 </header>
 
 </html>
