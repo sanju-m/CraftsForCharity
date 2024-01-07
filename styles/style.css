@@ -454,7 +454,7 @@ header {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  position: fixed;
+  position: sticky;
   z-index: 1000;
   padding: 5px 100px;
   width: 100%;
@@ -792,11 +792,11 @@ button.collapsible h2:hover, button.collapsible h2 .active {
   margin-left: 0.5rem;
 }
 
-input[type=text], textarea {
-  background-color: #f1f1f1;
+input[type=text], input[type=email], textarea {
+  background-color: white;
   width: 100%;
   outline: none;
-  border: 1px solid #f1f1f1;
+  border: 1px solid #ced4da;
   border-radius: 5px;
   padding: 5px 10px;
   font-size: 14px;

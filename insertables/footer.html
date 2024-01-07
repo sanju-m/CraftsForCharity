@@ -1,54 +1,162 @@
 <!DOCTYPE html>
 
+
 <html>
+
 <head>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
 </head>
 
 <footer>
-    <div class="container">
-        <div class="row">
-            <div class="col-md-4">
-                <ul>
-                    <h3>NAVIGATION</h3>
-                    <li><a href="/">Home</a></li>
-                    <li><a href="/about-us/">About Us</a></li>
-                    <li><a href="/classes/">Classes</a></li>
-                    <li><a href="/volunteer/">Volunteer</a></li>
-                    <li><a href="/faq/">FAQ</a></li>
-                    <li><a href="/contact/">Contact Us</a></li>
-                    <li><a href="/donate/">Donate</a></li>
-                </ul>
+
+  <script>
+
+    function sendEmail() {
+      // Get values from input controls
+      var last_name = document.getElementById('last_name').value;
+      var first_name = document.getElementById('first_name').value;
+      var email_id = document.getElementById('email_id').value;
+      var emailMessage = document.getElementById('emailMessage').value;
+      // Change the button text to indicate submission
+      var btnSubmit = document.getElementById('btnSubmit');
+      var statusLabel = document.getElementById('statusLabel')
+
+
+      var emailJsPublicKey = "inJNWGAhv5fR6twO0";
+
+      // Check if both inputs are not empty
+      if (last_name.trim() !== '' && first_name.trim() !== '' && email_id.trim() !== '' && emailMessage.trim() !== '') {
+        emailjs.init(emailJsPublicKey);
+        btnSubmit.innerText = "Sending email..."
+        var res = emailjs.send("service_mdeykem", "template_sc17poj", {
+          from_name: last_name + "," + first_name,
+          email_id: email_id,
+          message: emailMessage,
+        })
+          .then(function (response) {
+            console.log('SUCCESS!', response.status, response.text);
+            statusLabel.style.color = 'green';
+            statusLabel.textContent = 'Email sent successfully.';
+            // Clear the status after a brief period (e.g., 2000 milliseconds = 2 seconds)
+            setTimeout(function () {
+              document.getElementById('statusLabel').textContent = '';
+            }, 2000);
+          }, function (error) {
+            console.log('FAILED...', error);
+            statusLabel.style.color = 'red';
+            statusLabel.textContent = 'Email failed. Please try again later..';
+            // Clear the status after a brief period (e.g., 2000 milliseconds = 2 seconds)
+            setTimeout(function () {
+              document.getElementById('statusLabel').textContent = '';
+            }, 2000);
+          });
+
+        // Display alert with user inputs
+        btnSubmit.innerText = "Submit"
+      }
+    }
+
+    // Prevent the default form submission
+    document.getElementById('myForm').addEventListener('submit', function (event) {
+      event.preventDefault();
+
+      // bind sendEmail function to form submit
+      // (it would be better if we could pass in the form details as paramterers into sendEmail, instead of getting them through getElementById)
+      sendEmail();
+    });
+  </script>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-3">
+        <div class="form-row">
+
+          <form id="myForm">
+            <div class="form-group mb-3">
+              <h3 class="mb-3">CONTACT US</h3>
             </div>
-            <div class="col-md-4">
-                <ul>
-                    <h3>CONTACT</h3>
-                    <li><i class="fas fa-map-marker-alt"></i>&nbsp;&nbsp; <a href="https://www.google.com/maps/place/Clarksville,+MD+21029/@39.2041342,-76.9858384,13z/data=!4m5!3m4!1s0x89b7d91d627ee6c5:0x9b40ab3f00bcde3c!8m2!3d39.2061962!4d-76.9455664" target="_blank">Clarksville, Maryland</a></li>
-                    <li><i class="fas fa-phone-alt"></i>&nbsp;&nbsp; <a href="tel:4439176466" target="_blank">‪(443) 917-6466‬</a></li>
-                    <li><i class="fas fa-envelope"></i>&nbsp;&nbsp; <a href="mailto:info@craftsforcharity.com" target="_blank">info@craftsforcharity.com</a></li>
-                    <li><i class="fab fa-instagram"></i>&nbsp;&nbsp; <a href="https://www.instagram.com/craftsforcharity_/" target="_blank">@craftsforcharity_</a></li>
-                    <div class="icons">
-                        <!-- <a href="https://www.facebook.com/crafts.f.charity/" target="_blank" class="icon"><i class="fab fa-facebook"></i></a> -->
-                        <!-- <a href="https://www.instagram.com/craftsforcharity_/" target="_blank" class="icon"><i class="fab fa-instagram"></i></a> -->
-                        <!-- <a href="https://www.linkedin.com/company/crafts-for-charity/" target="_blank"><i class="fab fa-linkedin-in"></i></a> -->
-                        <!-- <a href="https://www.youtube.com/channel/UCBHYsTU9mmgfTaIUoHlMrFA?" target="_blank" class="icon"><i class="fab fa-youtube"></i></a> -->
-                    </div>
-                </ul>
+
+            <div class="form-group mb-3">
+              <input type="text" name="first_name" id="first_name" class="form-control" placeholder="First Name"
+                required>
             </div>
-            <div class="col-md-4">
-                <ul>
-                    <h3>LEGAL</h3>
-                    <li><a href="/legal/documents/privacy_policy.pdf" target="_blank">Privacy Policy</a></li>
-                       <li><a href="/legal/documents/terms_of_use.pdf" target="_blank">Terms of Use</a></li>
-                    <li><a href="/legal/bylaws/">Crafts For Charity Bylaws</a></li>
-                    <li><a href="/legal/minutes/">Board Meeting Agendas & Minutes</a></li>
-                    <li class="DMCA-policy"><a href="/legal/documents/DMCA_policy.pdf">DMCA policy</a></li>
-                </ul>
+
+            <div class="form-group mb-3">
+              <input type="text" name="last_name" id="last_name" class="form-control" placeholder="Last Name" required>
             </div>
+
+            <div class="form-group mb-3">
+              <input type="email" name="email" id="email_id" class="form-control" placeholder="Email" required>
+            </div>
+
+            <div class="form-group mb-3">
+              <textarea id="emailMessage" name="emailMessage" placeholder="Type your email message here..." required
+                class="form-control"></textarea>
+            </div>
+
+            <div class="form-group mb-3">
+              <input type="submit" id="btnSubmit" class="btn btn-primary" style="width: 100%; border-radius: 10px;"
+                value="Submit">
+            </div>
+            <div class="form-group mb-3">
+              <!-- Label to display status -->
+              <label id="statusLabel" style="width: 100%;"></label>
+            </div>
+          </form>
         </div>
-        <p class="credits">&copy; 2022 Crafts For Charity, a youth-led volunteer group based in Clarksville, Maryland.</p>
-        <br/>
-        <p class="center policy">Crafts for Charity Inc does not and shall not discriminate on the basis of race, color, religion (creed), gender, gender expression, age, national origin (ancestry), disability, marital status, sexual orientation, or military status, in any of its activities or operations. These activities include, but are not limited to, the hiring and firing of staff, the selection of volunteers, and the provision of services. Crafts for Charity Inc is committed to providing an inclusive and welcoming environment for staff, volunteers, and clients.</p>
+
+      </div>
+      <div class="col-md-3">
+        <ul>
+          <h3>NAVIGATION</h3>
+          <li><a href="/">Home</a></li>
+          <li><a href="/about-us/">About Us</a></li>
+          <li><a href="/classes/">Classes</a></li>
+          <li><a href="/volunteer/">Volunteer</a></li>
+          <li><a href="/faq/">FAQ</a></li>
+          <li><a href="/contact/">Contact Us</a></li>
+          <li><a href="/donate/">Donate</a></li>
+        </ul>
+      </div>
+      <div class="col-md-3">
+        <ul>
+          <h3>CONTACT</h3>
+          <li><i class="fas fa-map-marker-alt"></i>&nbsp;&nbsp; <a
+              href="https://www.google.com/maps/place/Clarksville,+MD+21029/@39.2041342,-76.9858384,13z/data=!4m5!3m4!1s0x89b7d91d627ee6c5:0x9b40ab3f00bcde3c!8m2!3d39.2061962!4d-76.9455664"
+              target="_blank">Clarksville, Maryland</a></li>
+          <li><i class="fas fa-phone-alt"></i>&nbsp;&nbsp; <a href="tel:4439176466" target="_blank">‪(443) 917-6466‬</a>
+          </li>
+          <li><i class="fas fa-envelope"></i>&nbsp;&nbsp; <a href="mailto:info@craftsforcharity.com"
+              target="_blank">info@craftsforcharity.com</a></li>
+          <li><i class="fab fa-instagram"></i>&nbsp;&nbsp; <a href="https://www.instagram.com/craftsforcharity_/"
+              target="_blank">@craftsforcharity_</a></li>
+          <div class="icons">
+            <!-- <a href="https://www.facebook.com/crafts.f.charity/" target="_blank" class="icon"><i class="fab fa-facebook"></i></a> -->
+            <!-- <a href="https://www.instagram.com/craftsforcharity_/" target="_blank" class="icon"><i class="fab fa-instagram"></i></a> -->
+            <!-- <a href="https://www.linkedin.com/company/crafts-for-charity/" target="_blank"><i class="fab fa-linkedin-in"></i></a> -->
+            <!-- <a href="https://www.youtube.com/channel/UCBHYsTU9mmgfTaIUoHlMrFA?" target="_blank" class="icon"><i class="fab fa-youtube"></i></a> -->
+          </div>
+        </ul>
+      </div>
+      <div class="col-md-3">
+        <ul>
+          <h3>LEGAL</h3>
+          <li><a href="/legal/documents/privacy_policy.pdf" target="_blank">Privacy Policy</a></li>
+          <li><a href="/legal/documents/terms_of_use.pdf" target="_blank">Terms of Use</a></li>
+          <li><a href="/legal/bylaws/">Crafts For Charity Bylaws</a></li>
+          <li><a href="/legal/minutes/">Board Meeting Agendas & Minutes</a></li>
+          <li class="DMCA-policy"><a href="/legal/documents/DMCA_policy.pdf">DMCA policy</a></li>
+        </ul>
+      </div>
     </div>
+    <p class="credits">&copy; 2022 Crafts For Charity, a youth-led volunteer group based in Clarksville, Maryland.</p>
+    <br />
+    <p class="center policy">Crafts for Charity Inc does not and shall not discriminate on the basis of race, color,
+      religion (creed), gender, gender expression, age, national origin (ancestry), disability, marital status, sexual
+      orientation, or military status, in any of its activities or operations. These activities include, but are not
+      limited to, the hiring and firing of staff, the selection of volunteers, and the provision of services. Crafts for
+      Charity Inc is committed to providing an inclusive and welcoming environment for staff, volunteers, and clients.
+    </p>
+  </div>
 </footer>
-    
+
 </html>
