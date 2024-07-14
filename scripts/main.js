@@ -28,22 +28,6 @@ $('.collapsible').click(function(){
 });
 
 
-//slideshow animation: automatic + manual
-/* var myIndex = 0;
-carousel();
-
-function carousel() {
-    var j;
-    var x = document.getElementsByClassName("slides");
-    for (j = 0; j < x.length; j++) {
-        x[i].style.display = "none";  
-    }
-    myIndex++;
-    if (myIndex > x.length) {myIndex = 1}    
-    x[myIndex-1].style.display = "block";  
-    setTimeout(carousel, 2000); // Change image every 2 seconds
-} */
-
 //team descriptions
 let teamCenter = document.querySelectorAll('.team-center');
 let speechBubbles = document.querySelectorAll('.speech-bubble');
@@ -174,3 +158,121 @@ window.onclick = function(event) {
     modal.style.display = "none";
   }
 } */
+
+//slideshow animation: automatic + manual
+const slideContainer = document.querySelector('.carousel');
+const slide = document.querySelector('.slides');
+const nextBtn = document.getElementById('next-btn');
+const prevBtn = document.getElementById('prev-btn');
+const interval = 5000;
+
+let slides = document.querySelectorAll('.slide');
+let index = 1;
+let slideId;
+
+const firstClone = slides[0].cloneNode(true);
+const lastClone = slides[slides.length - 1].cloneNode(true);
+
+firstClone.id = 'first-clone';
+lastClone.id = 'last-clone';
+
+slide.append(firstClone);
+slide.prepend(lastClone);
+
+var slideWidth = slides[index].clientWidth;
+
+slide.style.transform = `translateX(${-slideWidth * index}px)`;
+
+window.onresize = function() {
+  slideWidth = slides[index].clientWidth;
+  slide.style.transform = `translateX(${-slideWidth * index}px)`;
+}
+
+const startSlide = () => {
+  slideId = setInterval(() => {
+    moveToNextSlide();
+  }, interval);
+};
+
+const getSlides = () => document.querySelectorAll('.slide');
+
+slide.addEventListener('transitionend', () => {
+  slides = getSlides();
+  if (slides[index].id === firstClone.id) {
+    slide.style.transition = 'none';
+    index = 1;
+    slide.style.transform = `translateX(${-slideWidth * index}px)`;
+  }
+
+  if (slides[index].id === lastClone.id) {
+    slide.style.transition = 'none';
+    index = slides.length - 2;
+    slide.style.transform = `translateX(${-slideWidth * index}px)`;
+  }
+});
+
+const moveToNextSlide = () => {
+  slides = getSlides();
+  if (index >= slides.length - 1) return;
+  index++;
+  slide.style.transition = '.7s ease-in-out';
+  slide.style.transform = `translateX(${-slideWidth * index}px)`;
+};
+
+const moveToPreviousSlide = () => {
+  if (index <= 0) return;
+  index--;
+  slide.style.transition = '.7s ease-in-out';
+  slide.style.transform = `translateX(${-slideWidth * index}px)`;
+};
+
+slideContainer.addEventListener('mouseenter', () => {
+  clearInterval(slideId);
+});
+
+slideContainer.addEventListener('mouseleave', startSlide);
+nextBtn.addEventListener('click', moveToNextSlide);
+prevBtn.addEventListener('click', moveToPreviousSlide);
+
+startSlide();
+
+
+//carousel swipe controls
+let touchstartX = 0;
+let touchendX = 0;
+
+function checkDirection() {
+  if (touchendX < touchstartX - 50)
+    moveToNextSlide();
+  if (touchendX > touchstartX + 50)
+    moveToPreviousSlide();
+}
+
+function handleTouchStart(e) {
+  touchstartX = e.changedTouches[0].screenX;
+}
+
+function handleTouchEnd(e) {
+  touchendX = e.changedTouches[0].screenX;
+  checkDirection();
+
+  //reset auto slide timer
+  clearInterval(slideId);
+  slideId = setInterval(() => {
+    moveToNextSlide();
+  }, interval);
+}
+
+function checkWindowWidth() {
+  if (window.innerWidth < 500) { //enable swipe controls
+    slideContainer.addEventListener("touchstart", handleTouchStart);
+    slideContainer.addEventListener("touchend", handleTouchEnd);
+  }
+  else { //disable swipe controls
+    slideContainer.removeEventListener("touchstart", handleTouchStart);
+    slideContainer.removeEventListener("touchend", handleTouchEnd);
+  }
+}
+
+window.addEventListener('resize', checkWindowWidth);
+checkWindowWidth();
