@@ -50,8 +50,14 @@ $dark-grey: #767676;
 }
 
 @media screen and (max-width: 1485px) {
-    .logo-text-wrap {
-        display: block;
+    header .logo {
+        .logo-text {
+            display: none;
+        }
+    
+        .logo-text-abbreviated {
+            display: block;
+        }
     }
 }
 
@@ -64,6 +70,7 @@ $dark-grey: #767676;
 }
 
 /* nav list disappears and replaced by menu icon */
+
 @media screen and (max-width: 1300px) {
     ::-webkit-scrollbar {
         display: none;
@@ -92,10 +99,10 @@ $dark-grey: #767676;
                 margin-top: 10px;
                 font-size: 2em;
             }
-        }
 
-        .logo-text-wrap {
-            display: inline;
+            .logo-text-abbreviated {
+                display: none;
+            }
         }
 
         .btn {
@@ -264,6 +271,13 @@ $dark-grey: #767676;
     }
 }
 
+/* carousel arrows turn gray */
+@media screen and (max-width: 1250px) {
+    #next-btn, #prev-btn {
+        filter: brightness(30%);
+    }
+}
+
 /* action/contact cards stack instead of row */
 @media screen and (max-width: 1100px) {
     .member-card {
@@ -279,6 +293,13 @@ $dark-grey: #767676;
             min-height: 0;
             padding-bottom: 60px;
         }
+    }
+}
+
+/* carousel cards adapt width to screen width */
+@media screen and (max-width: 1060px) {
+    .stat-container {
+        max-width: 90%
     }
 }
 
@@ -311,6 +332,43 @@ $dark-grey: #767676;
         }
     }
 }
+
+
+
+/* carousel buttons disappear, replaced by swipe controls */
+@media screen and (max-width: 780px) {
+    .slide-controls {
+        #next-btn, #prev-btn {
+            display: none;
+        }
+    }
+}
+
+
+
+/* carousel card text and graphics become smaller */
+@media screen and (max-width: 700px) {
+    .carousel {
+        .slides {
+            .slide {
+                .stat-container {
+                    height: 460px;
+                    
+                    p {
+                        font-size: 2em;
+                    }
+
+                    .stat-1 img, .stat-2 img {
+                        width: 160px;
+                        height: auto;
+                        margin: -30px;
+                    }
+                }
+            }
+        }
+    }
+}
+
 
 
 /* header logo and text wrap around */
@@ -373,6 +431,12 @@ $dark-grey: #767676;
             .logo-text {
                 display: none;
             }
+
+            .logo-text-abbreviated {
+                display: block;
+                margin-top: 10px;
+                font-size: 2em;
+            }
         }
 
         &.sticky .logo .logo-pic img {
@@ -420,8 +484,10 @@ $dark-grey: #767676;
             height: max-content;
             width: 100%;
         }
-    }
 
+
+    }
+    
     .contacts {
         margin-top: 50px;
 
