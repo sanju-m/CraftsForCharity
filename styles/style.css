@@ -246,6 +246,37 @@ mark {
   margin-bottom: 20px;
 }
 
+.title-nodash .welcome {
+  margin-left: 13%;
+}
+
+.subtitle {
+  color: #202021;
+  font-size: 30px;
+  font-weight: 500;
+  letter-spacing: 0px;
+  margin-bottom: 20px;
+}
+
+.subtitle .caption{
+  margin-left: 15%;
+}
+
+.subtitle .caption-two{
+  margin-left: 15%;
+}
+
+.subtitle .caption-three{
+  margin-left: 40%;
+}
+
+.learn-create-donate {
+ margin-left: 140px;
+ margin-right: 60px;
+height: 230px;
+width: 230px;
+}
+
 .btn {
   border: none;
   outline: none;
@@ -351,7 +382,7 @@ mark {
 }
 
 .darkblue-btn:hover {
-  background-color: transparent;
+  background-color: #454f994c;
   color: #454F99;
 }
 
@@ -454,7 +485,7 @@ header {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  position: fixed;
+  position: sticky;
   z-index: 1000;
   padding: 5px 100px;
   width: 100%;
@@ -478,7 +509,7 @@ header.sticky .logo .logo-pic img {
 header .btn {
   width: auto;
   font-size: .9em;
-  margin: 0 10px 0;
+  margin: 0 10px 0; 
   padding: 10px 12px;
 }
 
@@ -792,11 +823,11 @@ button.collapsible h2:hover, button.collapsible h2 .active {
   margin-left: 0.5rem;
 }
 
-input[type=text], textarea {
-  background-color: #f1f1f1;
+input[type=text], input[type=email], textarea {
+  background-color: white;
   width: 100%;
   outline: none;
-  border: 1px solid #f1f1f1;
+  border: 1px solid #ced4da;
   border-radius: 5px;
   padding: 5px 10px;
   font-size: 14px;
@@ -1430,8 +1461,6 @@ background-position: center;
 
 .each-teams.bigger {
   font-size: 1.5em;
-
- 
 }
 
 .card-team {
@@ -1471,7 +1500,7 @@ background-position: center;
   background-color: #454F99;
 }
 .speech-bubble {
-   padding: 40px 30px;
+   padding: 40px 30px;  
    position: relative;
    width:80%;
    top: -5px;
@@ -1526,11 +1555,11 @@ background-position: center;
 }
 
 .square-btn {
-  background-color: #fff;
-  color: #6DBFEB;
+  background-color:   #454F99;
+  color: #ffffff;
   border: 0;
   outline: 0;
-  padding: 7px 20px;
+  padding: 8px 18px;
   width: max-content;
   min-width:200px;
   font-size: 16px;
@@ -1545,6 +1574,10 @@ background-position: center;
   text-decoration: none;
 }
 
+.square-btn .bigger{
+ padding: 25px 35px;
+}
+
 .square-btn.hover-yellow:hover {
    background-color: #ffe05c;
    color:black;
@@ -1555,9 +1588,8 @@ background-position: center;
   color: white;
 }
 
-
 .square-btn.blue-letters {
-  color: #454F99;
+  color: #454f995d;
 }
 
 .not-show {
