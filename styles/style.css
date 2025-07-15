@@ -127,7 +127,7 @@ html {
   color: #454649;
 }
 html a {
-  color: #454649;
+  color: black;
 }
 
 body {
@@ -141,13 +141,7 @@ body {
 .volunteer #volunteer-nav,
 .contact-us #contact-nav,
 .faq #faq-nav {
-  color: black;
-}
-
-.drop::after {
-  font-family: "Font Awesome 5 Free";
-  font-weight: 900;
-  content: " \f0d7";
+  color: #6DBFEB;
 }
 
 .dashed-top {
@@ -229,16 +223,6 @@ mark {
   font-size: 50px;
   letter-spacing: normal;
   font-weight: 900;
-}
-
-.title::after {
-  content: "";
-  position: absolute;
-  bottom: 655px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 22%;
-  border-bottom: 4px dashed #FFE05C;
 }
 
 .title-nodash {
@@ -338,10 +322,23 @@ mark {
 .darkblue-btn {
   background-color: #454F99;
   color: white;
+  width: 394px;
+  height: 94px;
+  font-size: 2em;
+  border-radius: 10px;
+  border: 1px solid transparent;
+  margin: 15px 20px;
+  transition: 0.4s;
 }
 .darkblue-btn:hover {
   background-color: transparent;
-  color: #454F99;
+  background-color: #d1d5fd;
+  color: blue;
+}
+
+.short-btn {
+  width: 303px;
+  height: 91px;
 }
 
 .arrow {
@@ -392,6 +389,11 @@ mark {
   max-width: 100%;
 }
 
+.centered-video {
+  display: block;
+  margin: 25px auto 50px auto;
+}
+
 .paragraph {
   margin-bottom: 15px;
 }
@@ -401,11 +403,15 @@ mark {
 }
 
 .title-borderbottom {
+  color: #6DBFEB;
+  font-size: 50px;
+  letter-spacing: normal;
+  font-weight: 900;
   border-bottom: 4px dashed #FFE05C;
   line-height: 1.5em;
   width: -moz-fit-content;
   width: fit-content;
-  margin: 0 auto 20px;
+  margin: 0 auto 20px auto;
 }
 
 .section-title {
@@ -414,8 +420,9 @@ mark {
   font-weight: 900;
   letter-spacing: normal;
 }
-.section-title a {
+.section-title a, .section-title a:hover {
   color: #6DBFEB;
+  text-decoration: none;
 }
 
 /* width */
@@ -477,6 +484,12 @@ header a:hover {
   text-decoration: none;
 }
 
+.navbar {
+  max-width: 1390px;
+  width: 100%;
+  margin: auto;
+}
+
 .logo {
   display: flex;
   width: -moz-max-content;
@@ -486,12 +499,12 @@ header a:hover {
 }
 .logo .logo-pic img {
   position: relative;
-  height: 70px;
+  height: 65px;
   padding-right: 10px;
   transition: 0.8s;
 }
-.logo .logo-text .logo-text-abbreviated {
-  font-size: 2.5em;
+.logo .logo-text, .logo .logo-text-abbreviated {
+  font-size: 2.4em;
   font-weight: bold;
   color: #6DBFEB;
   transition: 0.8s;
@@ -525,23 +538,26 @@ nav ul li {
   list-style: none;
   padding-left: 0;
   font-weight: bold;
-  letter-spacing: 2px;
-  font-size: 0.95em;
+  font-size: 1.3em;
   color: #454649;
   white-space: nowrap;
 }
 nav ul .head {
-  margin: 20px 20px 0;
+  margin: 20px 40px 0 40px;
   padding-bottom: 20px;
   display: block;
+}
+nav ul .head a {
+  color: black;
+  transition: all 0.2s ease;
+}
+nav ul .head a:hover {
+  color: #528fb0;
 }
 nav ul .head.donate-lbl {
   white-space: nowrap;
   margin: 0;
   padding: 0;
-}
-nav ul .head:hover {
-  color: black;
 }
 nav ul .donate-dropdown {
   margin-top: 20px;
@@ -554,17 +570,28 @@ nav ul #donate-label {
   padding-bottom: 10px;
 }
 
+.dropdown {
+  justify-content: center;
+  position: relative;
+}
+
 .dropdown-content {
   position: absolute;
   display: none;
   z-index: 10000;
   background-color: white;
-  width: 205px;
-  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-  margin-top: 0;
-  margin-left: 10px;
-  padding-left: 0;
+  width: -moz-max-content;
+  width: max-content;
   border-radius: 5px;
+  left: 50%;
+  translate: -50%;
+}
+.dropdown-content a {
+  color: black;
+  transition: all 0.2s ease;
+}
+.dropdown-content a:hover {
+  color: #528fb0;
 }
 
 .side {
@@ -588,14 +615,14 @@ nav ul #donate-label {
 }
 
 .dropdown-content .sub, .side-content .sub {
-  margin: 10px 20px;
-  padding: 5px 0;
+  margin: 0 15px;
+  padding: 0;
   text-decoration: none;
   display: block;
-  text-align: left;
+  text-align: center;
   font-weight: 400;
-  text-transform: lowercase;
   white-space: initial;
+  font-size: 1em;
 }
 
 .dropdown:hover .dropdown-content,
@@ -657,13 +684,16 @@ h3 {
   font-size: 1.2em;
 }
 
-p {
-  font-size: 22px;
+p, p a {
+  font-size: 20px;
   letter-spacing: normal;
   font-family: "Maven Pro";
   font-weight: 500;
   color: #454649;
   line-height: 1.2em;
+}
+p a, p a a {
+  text-decoration: underline;
 }
 
 ul li, a, nav .dropdown label:not(.donate-lbl) {
@@ -1004,6 +1034,7 @@ footer .policy {
   margin: 45px 0;
   color: #454649;
   font-size: 2.5em;
+  font-family: "Comfortaa", sans-serif;
 }
 .carousel .slides .slide .stat-container .stat-1 img {
   margin: -26px;
@@ -1055,16 +1086,35 @@ footer .policy {
 }
 
 /* OUR TEAM */
-.team-content img {
-  margin-bottom: 25px;
-  width: 100%;
-  border-radius: 10px;
+.team-content .members {
+  margin: 50px 0;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(2, auto);
+  row-gap: 40px;
 }
-.team-content .members h2 {
-  line-height: 1em;
+.team-content .members .members-card {
+  display: flex;
+  flex-direction: column;
+  padding: 22px;
 }
-.team-content h3 {
+.team-content .members .members-card img {
+  margin: 0 auto 25px auto;
+  height: 214px;
+  width: auto;
+  border-radius: 50%;
+  display: block;
+}
+.team-content .members .members-card h2 {
+  font-size: 1.7em;
+  line-height: 1.1em;
+  letter-spacing: normal;
+}
+.team-content .members .members-card h3 {
   color: #454F99;
+  font-size: 1.2em;
+  line-height: 1.3em;
+  letter-spacing: normal;
 }
 
 /* --------------------------------------------------------------------- */
@@ -1232,6 +1282,33 @@ footer .policy {
   max-width: 450px;
   width: 100%;
   margin-top: 50px;
+}
+
+/* --------------------------------------------------------------------- */
+/* TUTORIALS */
+.tutorials .info-table table, .tutorials .info-table th, .tutorials .info-table td {
+  background-color: white;
+  border: 1px solid white;
+}
+.tutorials .info-table th {
+  width: 30%;
+}
+.tutorials .info-table h2, .tutorials .info-table p {
+  text-align: left;
+}
+
+/* --------------------------------------------------------------------- */
+/* TEACH */
+.teach-content .lesson-plans-text {
+  width: 650px;
+}
+.teach-content td {
+  background-color: white;
+  border: 1px solid transparent;
+}
+.teach-content td p {
+  text-align: left;
+  margin: 0;
 }
 
 /* --------------------------------------------------------------------- */

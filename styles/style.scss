@@ -159,7 +159,7 @@ html {
     color: $dark-grey; //black
 
     a {
-        color: $dark-grey;
+        color: black;
     }
 }
 
@@ -170,23 +170,18 @@ body {
 // header highlight for whatever page the user is on
 .home #home-nav, 
 .about-us #about-nav, 
+
 .classes #classes-nav, 
 .donate #donate-nav, 
 .volunteer #volunteer-nav, 
 .contact-us #contact-nav, 
 .faq #faq-nav {
-    color: black;
+    color: $light-blue;
 }
 
 
 
 // DESIGNS (COLORS)
-
-.drop::after {
-    font-family: "Font Awesome 5 Free";
-    font-weight: 900;
-    content: " \f0d7"; //caret-down
-}
 
 .dashed-top {
     border-top: 4px dashed $yellow;
@@ -258,16 +253,6 @@ mark {
     letter-spacing: normal;
     font-weight: 900;
     //border-bottom: 4px dashed $yellow;
-}
-
-.title::after {
-    content: "";
-    position: absolute;
-    bottom: 655px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 22%;
-    border-bottom: 4px dashed $yellow;
 }
 
 .title-nodash {
@@ -369,19 +354,31 @@ mark {
     &:hover {
         background-color: $dark-blue;
         color: white;
-        // border: 1px solid $light-blue;
+        // border: 1px solid $light-blue;   
     }
 }
 .darkblue-btn {
     background-color: $dark-blue;
     color: white;
-    // border: 1px solid transparent;
+    width: 394px;
+    height: 94px;
+    font-size: 2em;
+    border-radius: 10px;
+    border: 1px solid transparent;
+    margin: 15px 20px;
+    transition: 0.4s;
 
     &:hover {
         background-color: transparent;
-        color: $dark-blue;
+        background-color: #d1d5fd;
+        color: blue;
         // border: 1px solid $dark-blue;
     }
+}
+
+.short-btn {
+    width: 303px;
+    height: 91px;
 }
 
 .arrow  {
@@ -432,6 +429,11 @@ mark {
     max-width: 100%;
 }
 
+.centered-video {
+    display: block;
+    margin: 25px auto 50px auto;
+}
+
 .paragraph {
     margin-bottom: 15px;
 }
@@ -440,12 +442,16 @@ mark {
     font-size: 18px;
 }
 
-.title-borderbottom { //h2
+.title-borderbottom {
+    color: $light-blue;
+    font-size: 50px;
+    letter-spacing: normal;
+    font-weight: 900;
+
     border-bottom: 4px dashed $yellow;
-    // margin-bottom: 20px;
     line-height: 1.5em;
     width: fit-content;
-    margin: 0 auto 20px;
+    margin: 0 auto 20px auto;
 }
 
 .section-title { //h3
@@ -454,8 +460,9 @@ mark {
     font-weight: 900;
     letter-spacing: normal;
 
-    a {
+    a, a:hover {
         color: $light-blue;
+        text-decoration: none;
     }
 }
 
@@ -534,6 +541,12 @@ header {
     }
 }
 
+.navbar {
+    max-width: 1390px;
+    width:100%;
+    margin: auto;
+}
+
 .logo {
     display: flex;
     width: max-content;
@@ -542,13 +555,13 @@ header {
 
     .logo-pic img {
         position: relative;
-        height: 70px;
+        height: 65px;
         padding-right: 10px;
         transition: 0.8s;
     }
 
-    .logo-text .logo-text-abbreviated {
-        font-size: 2.5em;
+    .logo-text, .logo-text-abbreviated {
+        font-size: 2.4em;
         font-weight: bold;
         // width: auto;
         color: $light-blue;
@@ -586,17 +599,25 @@ nav {
             list-style: none;
             padding-left: 0;
             font-weight: bold;
-            letter-spacing: 2px;
-            font-size: .95em;
+            font-size: 1.3em;
             color: $dark-grey;
             white-space: nowrap;
         }
 
         .head {
-            margin: 20px 20px 0;
+            margin: 20px 40px 0 40px;
             // margin: 0 10px 0 60px;
             padding-bottom: 20px;
             display: block;
+
+            a {
+                color: black;
+                transition: all 0.2s ease;
+
+                &:hover {
+                    color: #528fb0;
+                }
+            }
 
             &.donate-lbl {
                 white-space: nowrap;
@@ -604,9 +625,7 @@ nav {
                 padding: 0;
             }
 
-            &:hover {
-                color: black;
-            }
+            
         }
 
         .donate-dropdown {
@@ -624,17 +643,29 @@ nav {
     }
 }
 
+.dropdown {
+    justify-content: center;
+    position: relative;
+}
+
 .dropdown-content {
     position: absolute;
     display: none;
     z-index: 10000;
     background-color: white;
-    width: 205px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    margin-top: 0;
-    margin-left: 10px;
-    padding-left: 0;
+    width: max-content;
     border-radius: 5px;
+    left: 50%;
+    translate: -50%;
+
+    a {
+        color: black;
+        transition: all 0.2s ease;
+
+        &:hover {
+            color: #528fb0;
+        }
+    }
 }
 
 .side {
@@ -659,14 +690,14 @@ nav {
 }
 
 .dropdown-content .sub, .side-content .sub {
-    margin: 10px 20px;
-    padding: 5px 0;
+    margin: 0 15px;
+    padding: 0;
     text-decoration: none;
     display: block;
-    text-align: left;
+    text-align: center;
     font-weight: 400;
-    text-transform: lowercase;
     white-space: initial;
+    font-size: 1em;
 }
 
 .dropdown:hover .dropdown-content,
@@ -733,13 +764,17 @@ h3 {
     font-size: 1.2em;
 }
 
-p {
-    font-size: 22px;
+p, p a {
+    font-size: 20px;
     letter-spacing: normal;
     font-family: 'Maven Pro';
     font-weight: 500;
     color: $dark-grey;
     line-height: 1.2em;
+
+    a {
+        text-decoration: underline;
+    }
 }
 
 ul li, a, nav .dropdown label:not(.donate-lbl) {
@@ -1119,6 +1154,7 @@ footer {
                     margin: 45px 0;
                     color: $dark-grey;
                     font-size: 2.5em;
+                    font-family: 'Comfortaa', sans-serif;
                 }
     
                 .stat-1 img {
@@ -1189,20 +1225,40 @@ footer {
 /* OUR TEAM */
 
 .team-content {
-    img {
-        margin-bottom: 25px;
-        width: 100%;
-        border-radius: 10px;
-    }
-
     .members {
-        h2 {
-            line-height: 1em;
-        } 
-    }
+        margin: 50px 0;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: repeat(2, auto);
+        row-gap: 40px;
 
-    h3 {
-        color: $dark-blue;
+        .members-card {
+            display: flex;
+            flex-direction: column;
+            padding: 22px;
+
+            img {
+                margin: 0 auto 25px auto;
+                height: 214px;
+                width: auto;
+                border-radius: 50%;
+                display:block;
+            }
+            
+            h2 {
+                font-size: 1.7em;
+                line-height: 1.1em;
+                letter-spacing: normal;
+            }
+            
+            h3 {
+                color: $dark-blue;
+                font-size: 1.2em;
+                line-height: 1.3em;
+                letter-spacing: normal;
+            }
+        }
+        
     }
 }
 
@@ -1409,6 +1465,50 @@ footer {
     width: 100%;
     margin-top: 50px;
 }
+
+
+/* --------------------------------------------------------------------- */
+/* TUTORIALS */
+
+.tutorials {
+    .info-table {
+        table, th, td {
+            background-color: white;
+            border: 1px solid white;
+        }
+        
+        th {
+            width: 30%;
+        }
+
+        h2, p {
+            text-align: left;
+        }
+    }
+}
+
+
+
+/* --------------------------------------------------------------------- */
+/* TEACH */
+
+.teach-content {
+    .lesson-plans-text {
+        width: 650px;
+    }
+
+    td {
+        background-color: white;
+        border: 1px solid transparent;
+
+        p {
+            text-align: left;
+            margin: 0;
+        }
+    }
+}
+
+
 
 
 /* --------------------------------------------------------------------- */

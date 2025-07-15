@@ -79,7 +79,7 @@
     transition: 0.2s;
   }
   nav {
-    display: block;
+    display: none;
     text-align: right;
     float: right;
     height: 100vh;
@@ -131,6 +131,7 @@
   #menu-icon:checked ~ nav {
     margin-right: 0;
     box-shadow: 0px 10px 16px -16px rgba(0, 0, 0, 0.2);
+    display: block;
   }
   .dropdown input[type=checkbox]:checked ~ li .drop {
     color: black;
