@@ -1,60 +1,70 @@
 <!DOCTYPE html>
 <html lang="en">
 <header>
-  <a href="/" class="logo">
-    <div class="logo-pic"><img src="/images/new-logo.png"></div>
-    <h1 class="logo-text">Crafts for <span class="logo-text-wrap">Charity</span></h1>
-  </a>
+  <div class="navbar">
+    <a href="/" class="logo">
+      <div class="logo-pic"><img src="/images/new-logo.png"></div>
+      <h1 class="logo-text">Crafts for Charity</h1>
+      <h1 class="logo-text-abbreviated">CFC</h1>
+    </a>
+  
+    <input type="checkbox" id="menu-icon">
+    <label for="menu-icon"><i class="fas fa-bars"></i></label>
 
-  <input type="checkbox" id="menu-icon">
-  <label for="menu-icon"><i class="fas fa-bars"></i></label>
-  <nav>
-    <ul>
-      <li><a href="/" id="home-nav" title="Home" class="head">HOME</a></li>
-
-      <div class="dropdown">
-        <input type="checkbox" id="aboutus-dropdown">
-        <li><label for="aboutus-dropdown" class="head drop" id="about-nav">ABOUT US</label></li>
-        <!-- <li><a href="/about-us/" id="about-nav" class="head drop" title="About Us">ABOUT US</a></li> -->
-        <ul class="dropdown-content">
-          <li><a href="/about-us/" class="sub">overview</a></li>
-          <li><a href="/about-us/meet-our-team/" class="sub">meet our team</a></li>
-          <li><a href="/about-us/who-we-support/" class="sub">who we support</a></li>
-        </ul>
-      </div>
-
-      <div class="dropdown">
-        <input type="checkbox" id="volunteer-dropdown">
-        <li><label for="volunteer-dropdown" class="head drop" id="volunteer-nav">VOLUNTEER</label></li>
-        <!-- <li><a href="/volunteer/" id="volunteer-nav" class="head drop" title="Volunteer">VOLUNTEER</a></li> -->
-        <ul class="dropdown-content">
-          <div class="side">
-            <li><a href="/volunteer/" class="sub nav-item" id="member-overview">member positions</a></li>
-            <ul class="side-content">
-              <li><a href="/volunteer/team-descriptions/" class="sub nav-item">team descriptions</a></li>
-              <!--                        <li><a href="/volunteer/logistics/" class="sub nav-item">logistics</a></li>
-                            <li><a href="/volunteer/outreach/" class="sub nav-item">outreach</a></li>
-                            <li><a href="/volunteer/teaching/" class="sub nav-item">teaching</a></li> -->
-            </ul>
-            　 <div class="mobile-container">
-              <li><a href="/volunteer/team-descriptions/" class="sub mobile nav-item">team descriptions &nbsp;<i
-                    class="fas fa-chevron-right"></i></a></li>
-              <!--                          <li><a href="/volunteer/logistics/" class="sub mobile nav-item">logistics &nbsp;<i class="fas fa-chevron-right"></i></a></li>
-                            <li><a href="/volunteer/outreach/" class="sub mobile nav-item">outreach &nbsp;<i class="fas fa-chevron-right"></i></a></li>
-                            <li><a href="/volunteer/positions/teaching/" class="sub mobile nav-item">teaching &nbsp;<i class="fas fa-chevron-right"></i></a></li>  -->
-
-            </div>
-          </div>
-
-          <!--                     <li><a href="/volunteer/service-hours/" class="sub nav-item">service hours for members</a></li> -->
-          <li><a href="/volunteer/application/" class="sub nav-item">volunteer application</a></li>
-        </ul>
-      </div>
-      
-
-     
-    </ul>
-  </nav>
+    <nav>
+      <ul>
+        <div class="dropdown">
+          <input type="checkbox" id="aboutus-dropdown">
+          <li><label for="aboutus-dropdown" class="head" id="about-nav"><a href="/about-us/">ABOUT</a></label></li>
+          <ul class="dropdown-content">
+            <li><a href="/about-us/" class="sub">Overview</a></li>
+            <li><a href="/about-us/who-we-support/" class="sub">Who We Support</a></li>
+            <li><a href="/about-us/meet-our-team/" class="sub">Meet Our Team</a></li>
+          </ul>
+        </div>
+  
+        <div class="dropdown">
+          <input type="checkbox" id="events-dropdown">
+          <li><label for="events-dropdown" class="head" id="events-nav"><a href="/events/">EVENTS</a></label></li>
+          <ul class="dropdown-content">
+            <li><a href="/events/" class="sub">Overview</a></li>
+            <li><a href="/events/events-offered" class="sub">Events Offered</a></li>
+          </ul>
+        </div>
+  
+        <div class="dropdown">
+          <input type="checkbox" id="learn-dropdown">
+          <li><label for="learn-dropdown" class="head" id="learn-nav"><a href="/learn/">LEARN</a></label></li>
+          <ul class="dropdown-content">
+            <li><a href="/learn/yarn-guide" class="sub">Yarn Guide</a></li>
+            <li><a href="/learn/learn-to-crochet" class="sub">Learn to Crochet</a></li>
+            <li><a href="/learn/learn-to-knit" class="sub">Learn to Knit</a></li>
+          </ul>
+        </div>
+  
+        <div class="dropdown">
+          <input type="checkbox" id="teach-dropdown">
+          <li><label for="teach-dropdown" class="head" id="teach-nav"><a href="/teach/">TEACH</a></label></li>
+          <ul class="dropdown-content">
+            <li><a href="/teach/crochet" class="sub">Crochet</a></li>
+            <li><a href="/teach/knit" class="sub">Knit</a></li>
+          </ul>
+        </div>
+  
+        <div class="dropdown">
+          <input type="checkbox" id="patterns-dropdown">
+          <li><label for="patterns-dropdown" class="head" id="patterns-nav"><a href="/patterns/">PATTERNS</a></label></li>
+          <ul class="dropdown-content">
+            <li><a href="/patterns/reversible-octopus" class="sub">Reversible Octopus</a></li>
+            <li><a href="/patterns/sheep" class="sub">Sheep</a></li>
+            <li><a href="/patterns/hedgehog" class="sub">Hedgehog</a></li>
+            <li><a href="/patterns/bow" class="sub">Bow</a></li>
+            <li><a href="/patterns/isopod" class="sub">Isopod</a></li>
+          </ul>
+        </div>
+      </ul>
+    </nav>
+  </div>
 
   <!-- <script>
         var menu_check = document.getElementById("menu-icon");
